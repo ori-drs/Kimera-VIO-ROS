@@ -1,0 +1,36 @@
+# Camera
+camera_model: pinhole
+distortion_model: radial-tangential
+camera_rate_hz: 30
+camera_resolution: [848, 480] # width, height
+
+left_camera_intrinsics: [430.39843702006175, 429.3242525233762, 427.6134354470277, 236.9203123025838] # fu, fv, cu, cv
+left_camera_distortion_coefficients: [0.005673378961069616, -0.0017614368412212605, -0.00025281113631037973, 0.0011143536655696625] # k1, k2, p1, p2
+left_camera_extrinsics: [0.9999371029669053, -0.010376190593225736, -0.004257320627492222, 0.007856813063957824,
+                         0.010376271328221939, 0.9999461650426804, -3.124008822972649e-06, 0.031006212092968846,
+                         0.004257123850128908, -4.105130163000905e-05, 0.9999909375645937, -0.0009398575285420483,
+                         0.0, 0.0, 0.0, 1.0]
+
+right_camera_intrinsics: [430.47347028827687, 429.4290363969728, 428.1146097180138, 237.0482166140297] # fu, fv, cu, cv
+right_camera_distortion_coefficients: [0.006351283033570153, -0.002484714792120153, -0.00022539629433485122, 0.0008021062177272738] # k1, k2, p1, p2
+right_camera_extrinsics: [0.9999384612730351, -0.010375810460260997, -0.003926349985407422, -0.04209242973269365,
+                          0.010376627348631077, 0.9999461437293448, 0.00018773833000347006, 0.03102323585036445,
+                          0.003924190589511679, -0.000228469047464515, 0.9999922742352122, -0.0011277947635102653,
+                          0.0, 0.0, 0.0, 1.0]
+
+# If extrinsics is not in body frame (in this case it is so identity )
+calibration_to_body_frame: [1.0, 0.0, 0.0, 0.0,
+                            0.0, 1.0, 0.0, 0.0,
+                            0.0, 0.0, 1.0, 0.0,
+                            0.0, 0.0, 0.0, 1.0]
+
+# IMU calibrations
+imu_rate_hz: 200
+# Timeshift:
+imu_shift: 0.0 # t_imu0 = t_cam0 + imu_shift
+
+# inertial sensor noise model parameters (static)
+gyroscope_noise_density: 0.000208    # [ rad / s / sqrt(Hz) ]   ( gyro "white noise" )
+gyroscope_random_walk: 4.0e-06       # [ rad / s^2 / sqrt(Hz) ] ( gyro bias diffusion )
+accelerometer_noise_density: 0.001249  # [ m / s^2 / sqrt(Hz) ]   ( accel "white noise" )
+accelerometer_random_walk: 0.000106    # [ m / s^3 / sqrt(Hz) ].  ( accel bias diffusion )
